@@ -1,4 +1,4 @@
-import { NotificationsView } from './NotificationsView';
+import { NotificationsView } from './components/NotificationsView';
 
 function App() {
   return (

@@ -1,14 +1,8 @@
-import { Alert, Button, Divider, List, ListItemButton, ListItemText, Stack } from '@mui/material';
-import moment from 'moment';
-import React, { FC, useEffect, useState } from 'react';
+import { Alert, Button, List, Stack } from '@mui/material';
+import { FC, useEffect, useState } from 'react';
+import { UserNotification } from '../types';
+import { Noti } from './Noti';
 
-interface UserNotification {
-  id: number;
-  title: string;
-  body: string;
-  date: Date;
-  link: string;
-}
 
 export const NotificationsView: FC = () => {
   const [notifications, setNotifications] = useState<UserNotification[]>([]);
@@ -66,14 +60,3 @@ export const NotificationsView: FC = () => {
     </>
   );
 };
-
-const Noti: FC<{ un: UserNotification }> = ({ un }) => (
-  <>
-    <ListItemButton alignItems="flex-start" component="a" href={un.link}>
-      <ListItemText
-        primary={un.title}
-        secondary={`${un.body} // ${moment(un.date).fromNow()}`} />
-    </ListItemButton>
-    <Divider />
-  </>
-);
